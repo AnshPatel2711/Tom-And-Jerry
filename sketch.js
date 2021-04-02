@@ -11,8 +11,8 @@ function preload() {
     tomImg2 = loadAnimation("images/cat2.png");
     tomImg3 = loadAnimation("images/cat3.png");
     jerryImg1 = loadAnimation("images/mouse1.png");
-    jerryImg2 = loadAnimation("images/mouse2.png");
-    jerryImg3 = loadAnimation("images/mouse3.png");
+    jerryImg2 = loadAnimation("images/mouse3.png");
+    jerryImg3 = loadAnimation("images/mouse4.png");
 }
 
 function setup(){
@@ -24,7 +24,7 @@ function setup(){
 
     jerry = createSprite(200, 600);
     jerry.addAnimation("jerryStanding", jerryImg1);
-    jerry.scale= 0.15;
+    jerry.scale= 0.1;
 }
 
 function draw() {
@@ -39,7 +39,7 @@ function draw() {
         tom.changeAnimation("tomLastImage");
 
         jerry.addAnimation("jerryLastImage", jerryImg3);
-        jerry.scale= 0.15;
+        jerry.scale= 0.1;
         jerry.changeAnimation("jerryLastImage");
     }
     drawSprites();
@@ -57,8 +57,13 @@ if(keyCode === LEFT_ARROW){
 
     jerry.addAnimation("jerryTeasing", jerryImg2);
     jerry.frameDelay= 25;
-    jerry.scale= 0.15;
+    jerry.scale= 0.1;
     jerry.changeAnimation("jerryTeasing");
+}
+if(tom.isTouching("jerry")){
+    jerry.addAnimation("jerryCaught", jerryImg3);
+    jerry.scale= 0.1;
+    jerry.changeAnimation("jerryCaught");
 }
 
 }
